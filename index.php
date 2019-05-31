@@ -11,6 +11,7 @@ session_start();
 // Підключення файлів системи
 define('ROOT', dirname(__FILE__));
 require_once(ROOT.'/components/Autoload.php');
+require_once ('./config/db_params.php');
 
 
 // Виклик Router

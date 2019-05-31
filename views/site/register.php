@@ -1,80 +1,70 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
-<div class="container" style="margin-top: 4%">
+
+<div class="container" style="margin-top: 2%">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-7"><div class="well row">
-                <h2 style="text-align: center">Sign Up</h2>
-                <div class="form-group col-md-6">
-                    <form style="text-align: center" id="signup" action="/" method="post">
-                        <h3 style="text-align: center">Клієнт:</h3>
+        <div class="col-md-7">
+            <?php if ($result): ?>
+                <div class="bg-success" style="text-align: center; font-weight: bold">
+                    Ви успішно пройшли реєстрацію!
+                </div>
+            <?php elseif (isset($errors) && is_array($errors)): ?>
+                <?php foreach ($errors as $error): ?>
+                    <div class="bg-warning" style="text-align: center; font-weight: bold; margin: 1%">
+                        <?php echo $error; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <div class = "well row">
+                <h2 style = "text-align: center">Sign Up</h2>
+                <div class = "form-group">
+                    <form style = "text-align: center" id = "signup" action = "/" method = "post">
                         <br>
-                        <input type="text" name="fname" value="" class="form-control" placeholder="Ваше прівище" required >
+                        <input type = "text" name = "fname" value = "" class = "form-control" placeholder = "Ваше прівище" required >
                         <br>
-                        <input type="text" name="name" value="" class="form-control" placeholder="Ваше ім'я" required >
+                        <input type = "text" name = "name" value = "" class = "form-control" placeholder = "Ваше ім'я" required >
                         <br>
-                        <input type="text" name="pob" value="" class="form-control" placeholder="Ваше по-батькові" required >
+                        <input type = "number" name = "height" min = "140" max = "220" value = "" class = "form-control" placeholder = "Ваш зріст" required >
                         <br>
-                        <input type="number" name="height" min ="140" max="220" value="" class="form-control" placeholder="Ваш зріст" required >
+                        <input type = "date" name = "bdate" value = "" class = "form-control" placeholder = "Дата народження" required >
                         <br>
-                        <input type="date" name="bdate" value="" class="form-control" placeholder="Дата народження" required >
-                        <br>
-                        <select size="1" title="Ваша стать"  name="sex" class="form-control" required >
+                        <select size = "1" title = "Ваша стать" name = "sex" class = "form-control" required >
                             <option >Чоловіча</option>
                             <option >Жіноча</option>
                         </select>
                         <br>
-                        <input type="tel" name="tel" value="" class="form-control" placeholder="Номер телефону" required >
+                        <input type = "number" name = "weight" min = "40" max = "300" value = "" class = "form-control" placeholder = "Ваша вага" required >
                         <br>
-                        <input type="number" name="weight" min="40" max="300" value="" class="form-control" placeholder="Ваша вага" required >
+                        <input type = "email" name = "email" value = "" class = "form-control" placeholder = "Email" required >
                         <br>
-                        <input type="password" name="password" value="" class="form-control" placeholder="Введіть пароль" required  >
+                        <input type = "password" name = "password" value = "" class = "form-control" placeholder = "Введіть пароль" required >
                         <br>
-                        <input type="password" name="password_2" value="" class="form-control" placeholder="Повторіть пароль" required >
+                        <input type = "password" name = "password_2" value = "" class = "form-control" placeholder = "Повторіть пароль" required >
                         <br>
-                        <button type="submit"  class="btn btn-success" name="do_signup">Зареєструватися</button>
+                        <button type = "submit" class = "btn btn-success" name = "do_signup">Зареєструватися</button>
                     </form>
                 </div>
-                <div class="form-group col-md-6" >
-                    <form style="text-align: center" id="signup" action="/" method="post">
-                        <h3 style="text-align: center">Тренер:</h3>
-                        <br>
-                        <input type="text" name="fname" value="" class="form-control" placeholder="Ваше прівище" required >
-                        <br>
-                        <input type="text" name="name" value="" class="form-control" placeholder="Ваше ім'я" required >
-                        <br>
-                        <input type="text" name="pob" value="" class="form-control" placeholder="Ваше по-батькові" required >
-                        <br>
-                        <input type="tel" name="tel" value="" class="form-control" placeholder="Номер телефону" required >
-                        <br>
-                        <input type="password" name="password" value="" class="form-control" placeholder="Введіть пароль" required  >
-                        <br>
-                        <input type="password" name="password_2" value="" class="form-control" placeholder="Повторіть пароль" required >
-                        <br>
-                        <button type="submit"  class="btn btn-success" name="do_signup_coach">Зареєструватися</button>
-                    </form>
-                </div>
-
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-            <div class="well">
+        <div class = "col-md-1"></div>
+        <div class = "col-md-3">
+            <div class = "well">
 
-                <div class="form-group">
-                    <form action="/" method="post">
-                        <div style="text-align: center">
+                <div class = "form-group">
+                    <form action = "/" method = "post">
+                        <div style = "text-align: center">
                             <h2>Sign In</h2>
                         </div>
                         <br>
-                        <input type="tel" name="tel" value="" class="form-control" placeholder="Введіть номер телефону" required>
+                        <input type = "email" name = "email" value = "" class = "form-control" placeholder = "Введіть email" required>
                         <br>
-                        <input type="password" name="password" value="" class="form-control" placeholder="Введіть пароль" required>
-                        <input type="hidden" name="timezone" id="tz">
+                        <input type = "password" name = "password" value = "" class = "form-control" placeholder = "Введіть пароль" required>
                         <br>
 
-                        <div style="text-align: center">
-                            <button type="submit"  name="do_login" class="btn btn-success btn-md" >Вхід</button>
+                        <div style = "text-align: center">
+                            <button type = "submit" name = "do_login" class = "btn btn-success btn-md" >Вхід</button>
                         </div>
                     </form>
                 </div>
